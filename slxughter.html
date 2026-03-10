@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLXUGHTER 🔪</title>
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Russo+One&family=Permanent+Marker&family=Kanit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --neon-cyan: #00f5ff;
+  --neon-pink: #ff006e;
+  --neon-green: #39ff14;
+  --neon-yellow: #fff200;
+  --neon-orange: #ff6b00;
+  --dark-bg: #060610;
+  --card-bg: #0d0d1a;
+  --grid-color: rgba(0,245,255,0.06);
+  --text: #e8e8ff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark-bg);color:var(--text);font-family:'Kanit',sans-serif;overflow-x:hidden;cursor:crosshair;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:orbFloat 8s ease-in-out infinite;}
+.orb1{width:400px;height:400px;background:rgba(0,245,255,0.08);top:-100px;left:-100px;}
+.orb2{width:300px;height:300px;background:rgba(255,0,110,0.08);bottom:-50px;right:-50px;animation-delay:-3s;}
+.orb3{width:250px;height:250px;background:rgba(57,255,20,0.06);top:50%;left:50%;animation-delay:-5s;}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.1);}66%{transform:translate(-20px,30px) scale(0.9);}}
+.wrap{position:relative;z-index:2;}
+header{text-align:center;padding:60px 20px 30px;position:relative;}
+.skull-row{font-size:28px;letter-spacing:8px;margin-bottom:10px;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.gc-name{font-family:'Russo One',sans-serif;font-size:clamp(72px,16vw,160px);line-height:0.9;background:linear-gradient(135deg,var(--neon-cyan) 0%,var(--neon-pink) 50%,var(--neon-yellow) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(0,245,255,0.5));letter-spacing:-2px;animation:titleGlitch 5s infinite;}
+@keyframes titleGlitch{0%,88%,100%{filter:drop-shadow(0 0 30px rgba(0,245,255,0.5));transform:skewX(0deg);}90%{filter:drop-shadow(0 0 30px rgba(255,0,110,0.8)) drop-shadow(-4px 0 0 cyan);transform:skewX(-2deg);}92%{filter:drop-shadow(4px 0 0 var(--neon-pink));transform:skewX(2deg);}94%{filter:drop-shadow(0 0 30px rgba(0,245,255,0.5));transform:skewX(0deg);}}
+.tagline-wrap{margin-top:16px;display:inline-block;}
+.tagline{font-family:'Permanent Marker',cursive;font-size:clamp(13px,3vw,19px);color:var(--dark-bg);background:var(--neon-yellow);padding:6px 20px;transform:rotate(-1.5deg);display:inline-block;box-shadow:4px 4px 0 var(--neon-pink),8px 8px 0 rgba(0,0,0,0.3);letter-spacing:1px;}
+.sep{display:flex;align-items:center;gap:16px;max-width:700px;margin:30px auto;padding:0 20px;}
+.sep-line{flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--neon-cyan),transparent);}
+.sep-icon{font-size:22px;animation:spin 4s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.boss-section{display:flex;justify-content:center;padding:10px 20px 30px;}
+.boss-card{position:relative;text-align:center;cursor:pointer;}
+.boss-hex-wrap{width:190px;height:190px;margin:0 auto 16px;position:relative;clip-path:polygon(50% 0%,95% 25%,95% 75%,50% 100%,5% 75%,5% 25%);background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink));padding:3px;transition:transform 0.3s;animation:bossGlow 2s infinite;}
+@keyframes bossGlow{0%,100%{filter:drop-shadow(0 0 20px rgba(0,245,255,0.7));}50%{filter:drop-shadow(0 0 40px rgba(255,0,110,0.8));}}
+.boss-card:hover .boss-hex-wrap{transform:scale(1.08) rotate(5deg);}
+.boss-hex-inner{width:100%;height:100%;clip-path:polygon(50% 0%,95% 25%,95% 75%,50% 100%,5% 75%,5% 25%);background:var(--card-bg);display:flex;align-items:center;justify-content:center;font-size:72px;overflow:hidden;}
+.boss-hex-inner img{width:100%;height:100%;object-fit:cover;}
+.boss-tag{position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:var(--dark-bg);font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:4px;padding:4px 16px;border-radius:20px;white-space:nowrap;box-shadow:0 0 15px rgba(0,245,255,0.5);}
+.boss-name{font-family:'Russo One',sans-serif;font-size:52px;background:linear-gradient(135deg,var(--neon-cyan),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(0,245,255,0.6));letter-spacing:5px;}
+.boss-icons{font-size:22px;letter-spacing:4px;margin-top:4px;animation:pulse 1.5s infinite;}
+.members-wrap{max-width:1100px;margin:0 auto;padding:10px 20px 40px;}
+.section-heading{font-family:'Russo One',sans-serif;font-size:clamp(28px,6vw,48px);text-align:center;letter-spacing:6px;margin-bottom:32px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);}
+.section-heading span{background:linear-gradient(90deg,var(--neon-green),var(--neon-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-heading::after{content:'';display:block;height:3px;margin-top:6px;background:linear-gradient(90deg,transparent,var(--neon-green),transparent);border-radius:2px;}
+.members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px;}
+.m-card{background:var(--card-bg);border:1px solid rgba(0,245,255,0.15);border-radius:16px;padding:20px 12px 16px;text-align:center;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;animation:cardIn 0.5s both;}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.m-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,255,0.05),transparent 60%);pointer-events:none;}
+.m-card:hover{transform:translateY(-12px) rotate(-1deg);border-color:var(--neon-cyan);box-shadow:0 0 25px rgba(0,245,255,0.25),0 20px 40px rgba(0,0,0,0.5);z-index:10;}
+.avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 12px;border:2.5px solid rgba(0,245,255,0.3);background:linear-gradient(135deg,#111128,#0d0d1a);display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;position:relative;}
+.avatar img{width:100%;height:100%;object-fit:cover;}
+.m-card:hover .avatar{border-color:var(--neon-cyan);box-shadow:0 0 20px rgba(0,245,255,0.4);}
+.av-tip{position:absolute;inset:0;border-radius:50%;background:rgba(0,5,20,0.88);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;font-family:'Boogaloo',cursive;font-size:11px;color:var(--neon-cyan);text-align:center;padding:8px;line-height:1.3;}
+.m-card:hover .av-tip{opacity:1;}
+.m-name{font-family:'Russo One',sans-serif;font-size:17px;color:#fff;letter-spacing:2px;margin-bottom:4px;}
+.m-vibe{font-family:'Boogaloo',cursive;font-size:12px;color:rgba(0,245,255,0.55);line-height:1.3;}
+.m-dot{width:8px;height:8px;border-radius:50%;background:var(--neon-green);box-shadow:0 0 8px var(--neon-green);position:absolute;top:12px;right:12px;animation:pulse 2s infinite;}
+.m-card.lakshita{border-color:rgba(255,0,110,0.25);}
+.m-card.lakshita:hover{border-color:var(--neon-pink);box-shadow:0 0 25px rgba(255,0,110,0.3),0 20px 40px rgba(0,0,0,0.5);}
+.m-card.lakshita:hover .avatar{border-color:var(--neon-pink);box-shadow:0 0 20px rgba(255,0,110,0.5);}
+.m-card.lakshita .m-dot{background:var(--neon-pink);box-shadow:0 0 8px var(--neon-pink);}
+.m-card.lakshita .m-vibe{color:rgba(255,0,110,0.7);}
+.m-card.lakshita:hover .av-tip{color:var(--neon-pink);}
+.m-card:nth-child(1){animation-delay:0.05s}.m-card:nth-child(2){animation-delay:0.1s}.m-card:nth-child(3){animation-delay:0.15s}.m-card:nth-child(4){animation-delay:0.2s}.m-card:nth-child(5){animation-delay:0.25s}.m-card:nth-child(6){animation-delay:0.3s}.m-card:nth-child(7){animation-delay:0.35s}.m-card:nth-child(8){animation-delay:0.4s}
+.crybaby-wrap{max-width:800px;margin:0 auto 60px;padding:0 20px;}
+.crybaby-box{position:relative;border-radius:20px;overflow:hidden;padding:3px;background:linear-gradient(135deg,var(--neon-orange),var(--neon-pink),var(--neon-orange));}
+.crybaby-inner{background:#0d0818;border-radius:18px;padding:36px 28px;position:relative;overflow:hidden;}
+.crybaby-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,107,0,0.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(255,0,110,0.08) 0%,transparent 60%);pointer-events:none;}
+.tape{position:absolute;font-family:'Permanent Marker',cursive;font-size:11px;background:var(--neon-yellow);color:#000;padding:4px 14px;letter-spacing:2px;box-shadow:3px 3px 0 rgba(0,0,0,0.4);}
+.tape1{top:16px;left:-8px;transform:rotate(-3deg);}
+.tape2{top:16px;right:-8px;transform:rotate(3deg);}
+.cb-heading{font-family:'Permanent Marker',cursive;font-size:clamp(32px,7vw,54px);text-align:center;color:var(--neon-orange);text-shadow:0 0 20px rgba(255,107,0,0.6),3px 3px 0 rgba(0,0,0,0.5);margin-bottom:8px;}
+.cb-sub{font-family:'Boogaloo',cursive;text-align:center;color:rgba(255,150,100,0.7);font-size:15px;margin-bottom:28px;line-height:1.5;}
+.crybaby-cards{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;}
+.cb-card{text-align:center;cursor:pointer;position:relative;transition:transform 0.2s;}
+.cb-card:hover{animation:cryShake 0.3s infinite;}
+@keyframes cryShake{0%,100%{transform:rotate(-3deg) scale(1.05);}50%{transform:rotate(3deg) scale(1.05);}}
+.cb-avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 12px;border:3px solid var(--neon-orange);background:#180d08;display:flex;align-items:center;justify-content:center;font-size:48px;overflow:hidden;box-shadow:0 0 20px rgba(255,107,0,0.3);position:relative;transition:box-shadow 0.3s;}
+.cb-avatar img{width:100%;height:100%;object-fit:cover;}
+.cb-card:hover .cb-avatar{box-shadow:0 0 35px rgba(255,107,0,0.7),0 0 60px rgba(255,0,110,0.3);}
+.cb-av-tip{position:absolute;inset:0;border-radius:50%;background:rgba(15,5,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;font-family:'Boogaloo',cursive;font-size:11px;color:var(--neon-orange);text-align:center;padding:8px;line-height:1.3;}
+.cb-card:hover .cb-av-tip{opacity:1;}
+.cb-name{font-family:'Russo One',sans-serif;font-size:22px;color:var(--neon-orange);letter-spacing:2px;}
+.cry-emojis{font-size:18px;letter-spacing:2px;display:block;margin:4px 0;animation:emojiCry 0.6s infinite alternate;}
+@keyframes emojiCry{from{transform:translateY(0);}to{transform:translateY(-5px);}}
+.cb-badge{font-family:'Boogaloo',cursive;font-size:12px;background:linear-gradient(90deg,var(--neon-orange),var(--neon-pink));color:#fff;padding:4px 12px;border-radius:20px;display:inline-block;font-weight:700;margin-top:4px;box-shadow:0 0 10px rgba(255,107,0,0.4);}
+footer{border-top:1px solid rgba(0,245,255,0.1);padding:30px 20px;text-align:center;}
+.footer-text{font-family:'Boogaloo',cursive;font-size:14px;color:rgba(200,200,255,0.3);letter-spacing:2px;line-height:2;}
+.footer-text span{color:var(--neon-pink);}
+.footer-text em{color:var(--neon-cyan);font-style:normal;}
+.particle{position:fixed;pointer-events:none;z-index:999;font-size:22px;animation:particleUp 1.2s ease-out forwards;}
+@keyframes particleUp{0%{opacity:1;transform:translate(0,0) scale(1);}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0.3);}}
+#toast{position:fixed;bottom:24px;right:24px;background:rgba(0,5,20,0.9);border:1px solid var(--neon-cyan);box-shadow:0 0 20px rgba(0,245,255,0.3);color:var(--text);padding:10px 20px;border-radius:12px;font-family:'Boogaloo',cursive;font-size:15px;z-index:1000;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;}
+#toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:600px){.members-grid{grid-template-columns:repeat(3,1fr);gap:12px;}.avatar{width:70px;height:70px;font-size:30px;}.m-name{font-size:14px;}.crybaby-cards{gap:20px;}.cb-avatar{width:100px;height:100px;}}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<div class="wrap">
+
+<header>
+  <div class="skull-row">💀 ☠️ 💀 ☠️ 💀</div>
+  <div class="gc-name">SLXUGHTER</div>
+  <div class="tagline-wrap">
+    <div class="tagline">jahan entry hai, wahan bakwas bhi pakki hai 🔪</div>
+  </div>
+</header>
+
+<div class="sep"><div class="sep-line"></div><div class="sep-icon">⚡</div><div class="sep-line"></div></div>
+
+<!-- GHOST BOSS -->
+<div class="boss-section">
+  <div class="boss-card" onclick="playSound('ghost',event)">
+    <div class="boss-tag">✦ THE UNDISPUTED ✦</div>
+    <div class="boss-hex-wrap">
+      <div class="boss-hex-inner" id="img-ghost">👻</div>
+    </div>
+    <div class="boss-name">GHOST</div>
+    <div class="boss-icons">💀 ⚡ 💀</div>
+  </div>
+</div>
+
+<div class="sep"><div class="sep-line"></div><div class="sep-icon">🔥</div><div class="sep-line"></div></div>
+
+<!-- MEMBERS -->
+<div class="members-wrap">
+  <div class="section-heading"><span>⚔ THE SQUAD ⚔</span></div>
+  <div class="members-grid">
+
+    <div class="m-card" onclick="playSound('bhondu',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-bhondu">🤡<div class="av-tip">Bhondu bhai<br>koi ilaaj nahi 💀</div></div>
+      <div class="m-name">BHONDU</div>
+      <div class="m-vibe">certified pagal 🤪</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('shivi',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-shivi">😈<div class="av-tip">Shivi<br>plotting something 🧠</div></div>
+      <div class="m-name">SHIVI</div>
+      <div class="m-vibe">menace 😈</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('gurpreet',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-gurpreet">🦁<div class="av-tip">Gurpreet<br>aya to game over 💪</div></div>
+      <div class="m-name">GURPREET</div>
+      <div class="m-vibe">sher hai bhai 🦁</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('akash',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-akash">⚡<div class="av-tip">Akash<br>bijli jaisi speed 💨</div></div>
+      <div class="m-name">AKASH</div>
+      <div class="m-vibe">sky is the limit ⚡</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('vegeta',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-vegeta">👊<div class="av-tip">Vegeta:<br>"I AM THE PRINCE!" 👑</div></div>
+      <div class="m-name">VEGETA</div>
+      <div class="m-vibe">prince of saiyans 👑</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('goku',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-goku">🌀<div class="av-tip">Goku<br>power level: ∞ 🔥</div></div>
+      <div class="m-name">GOKU</div>
+      <div class="m-vibe">ultra instinct 🌀</div>
+    </div>
+
+    <div class="m-card" onclick="playSound('karan',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-karan">😎<div class="av-tip">Karan<br>always chill 😎</div></div>
+      <div class="m-name">KARAN</div>
+      <div class="m-vibe">cool dude 🕶️</div>
+    </div>
+
+    <div class="m-card lakshita" onclick="playSound('lakshita',event)">
+      <div class="m-dot"></div>
+      <div class="avatar" id="img-lakshita">🌸<div class="av-tip">Lakshita<br>dangerous in disguise 🌸⚡</div></div>
+      <div class="m-name">LAKSHITA</div>
+      <div class="m-vibe">sweet but deadly 🌸</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sep" style="max-width:700px;margin:0 auto 30px;">
+  <div class="sep-line" style="background:linear-gradient(90deg,transparent,var(--neon-orange),transparent)"></div>
+  <div class="sep-icon">😭</div>
+  <div class="sep-line" style="background:linear-gradient(90deg,transparent,var(--neon-orange),transparent)"></div>
+</div>
+
+<!-- CRYBABY CORNER -->
+<div class="crybaby-wrap">
+  <div class="crybaby-box">
+    <div class="crybaby-inner">
+      <div class="tape tape1">⚠ DANGER</div>
+      <div class="tape tape2">ENTER ?</div>
+      <div class="cb-heading">😭 CRYBABY CORNER 😭</div>
+      <div class="cb-sub">
+        Yahan woh 2 log rehte hain jo baat baat pe<br>
+        <strong style="color:var(--neon-orange)">chidh jaate hain aur rona shuru kar dete hain 🍼🎻</strong>
+      </div>
+      <div class="crybaby-cards">
+        <div class="cb-card" onclick="playSound('oggy',event)">
+          <div class="cb-avatar" id="img-oggy">😤<div class="cb-av-tip">"YAAR YE SAHI<br>NHI HAI!!" 😭</div></div>
+          <div class="cb-name">OGGY</div>
+          <span class="cry-emojis">😭😭😭</span>
+          <div class="cb-badge">Rona Expert 🏆</div>
+        </div>
+        <div class="cb-card" onclick="playSound('micky',event)">
+          <div class="cb-avatar" id="img-micky">🥺<div class="cb-av-tip">"MERE SAATH<br>AISA KYU!!" 😤</div></div>
+          <div class="cb-name">MICKY</div>
+          <span class="cry-emojis">🥺🥺🥺</span>
+          <div class="cb-badge">Chidchida Supreme 🥇</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text">
+    <em>SLXUGHTER GC</em> &nbsp;©&nbsp; 2024<br>
+    No bhondus were permanently harmed &nbsp;|&nbsp; <span>Made with 💀 & questionable life choices</span><br>
+    Oggy & Micky are still crying somewhere 😭
+  </div>
+</footer>
+
+</div>
+
+<div id="toast">🔊 Loading vibe...</div>
+
+<script>
+const sounds = {
+  ghost:null, bhondu:null, shivi:null, gurpreet:null,
+  akash:null, vegeta:null, goku:null, karan:null,
+  lakshita:null, oggy:null, micky:null,
+};
+const labels = {
+  ghost:'👻 Ghost ka sound', bhondu:'🤡 Bhondu in the house',
+  shivi:'😈 Shivi aaya', gurpreet:'🦁 Gurpreet sher',
+  akash:'⚡ Akash bijli', vegeta:'👊 VEGETA POWER',
+  goku:'🌀 KAMEHAMEHA!!!', karan:'😎 Karan chill mode',
+  lakshita:'🌸 Lakshita ka sound', oggy:'😭 Oggy rona start...',
+  micky:'🥺 Micky chidh gaya phir',
+};
+const PARTICLES = ['💀','🔥','⚡','😭','🔪','💥','🤣','👊','✨','🌀'];
+
+function playSound(member, e) {
+  const toast = document.getElementById('toast');
+  toast.textContent = labels[member] || '🔊 Playing...';
+  toast.classList.add('show');
+  clearTimeout(window._tt);
+  window._tt = setTimeout(() => toast.classList.remove('show'), 2200);
+  if (sounds[member]) { try { new Audio(sounds[member]).play(); } catch(err){} }
+  if (e) spawnParticles(e.clientX, e.clientY);
+}
+
+function spawnParticles(x, y) {
+  for (let i = 0; i < 6; i++) {
+    const el = document.createElement('div');
+    el.className = 'particle';
+    el.textContent = PARTICLES[Math.floor(Math.random()*PARTICLES.length)];
+    const angle = (Math.PI*2/6)*i + Math.random()*0.5;
+    const dist = 60 + Math.random()*60;
+    el.style.setProperty('--dx', Math.cos(angle)*dist+'px');
+    el.style.setProperty('--dy', (Math.sin(angle)*dist-80)+'px');
+    el.style.left = (x-12)+'px';
+    el.style.top  = (y+window.scrollY-12)+'px';
+    el.style.animationDelay = (Math.random()*0.15)+'s';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1400);
+  }
+}
+// Photo: div id="img-MEMBER" ke andar emoji hatake <img src="photo.jpg"> daal
+// Sound: sounds object mein path daal, e.g. ghost: 'sounds/ghost.mp3'
+</script>
+</body>
+</html>
